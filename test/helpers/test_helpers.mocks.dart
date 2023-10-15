@@ -9,6 +9,7 @@ import 'dart:ui' as _i5;
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i2;
+import 'package:usda_search/services/local_db_service.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -650,4 +651,42 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [LocalDbService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLocalDbService extends _i1.Mock implements _i6.LocalDbService {
+  @override
+  _i4.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i4.Future<List<(String, num, String)?>> getDescriptions(String? term) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDescriptions,
+          [term],
+        ),
+        returnValue: _i4.Future<List<(String, num, String)?>>.value(
+            <(String, num, String)?>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<(String, num, String)?>>.value(
+                <(String, num, String)?>[]),
+      ) as _i4.Future<List<(String, num, String)?>>);
 }
