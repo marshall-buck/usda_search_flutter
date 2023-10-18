@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:usda_search/app/app.locator.dart';
@@ -15,6 +16,7 @@ import 'test_helpers.mocks.dart';
 // @stacked-mock-spec
 ])
 void registerServices() {
+  WidgetsFlutterBinding.ensureInitialized();
   getAndRegisterNavigationService();
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
@@ -68,6 +70,7 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
 MockDialogService getAndRegisterDialogService() {
   _removeRegistrationIfExists<DialogService>();
   final service = MockDialogService();
+
   locator.registerSingleton<DialogService>(service);
   return service;
 }
@@ -75,7 +78,11 @@ MockDialogService getAndRegisterDialogService() {
 MockLocalDbService getAndRegisterLocalDbService() {
   _removeRegistrationIfExists<LocalDbService>();
   final service = MockLocalDbService();
+
+  // when(service.getAutoComplete('apple')).thenAnswer((_) async => [("", 9, '')]);
+
   locator.registerSingleton<LocalDbService>(service);
+
   return service;
 }
 // @stacked-mock-create

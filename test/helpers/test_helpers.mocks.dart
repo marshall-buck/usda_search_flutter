@@ -677,10 +677,10 @@ class MockLocalDbService extends _i1.Mock implements _i6.LocalDbService {
       );
 
   @override
-  _i4.Future<List<(String, num, String)?>> getDescriptions(String? term) =>
+  _i4.Future<List<(String, num, String)?>> getAutoComplete(String? term) =>
       (super.noSuchMethod(
         Invocation.method(
-          #getDescriptions,
+          #getAutoComplete,
           [term],
         ),
         returnValue: _i4.Future<List<(String, num, String)?>>.value(

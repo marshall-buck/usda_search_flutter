@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:usda_search/app/app.locator.dart';
+import 'package:usda_search/services/local_db_service.dart';
 
 import '../helpers/test_helpers.dart';
 
@@ -9,17 +11,19 @@ void main() {
     tearDown(() => locator.reset());
     group('init()', () {
       test('should not throw', () async {
-        final service = getAndRegisterLocalDbService();
+        final real = LocalDbService();
 
-        expect(() async => await service.init(), returnsNormally);
+        expect(() async => await real.init(), returnsNormally);
       });
     });
-    group('getDescriptions()', () {
+    group('getAutoComplete()', () {
       test('should return list of records', () async {
-        final service = getAndRegisterLocalDbService();
-        await service.init();
-        final res = await service.getDescriptions('apple');
+        final real = LocalDbService();
+        await real.init();
+        final res = await real.getAutoComplete('apple');
         expect(res, isNotEmpty);
+        print(res);
+        // expect(res.length, isNotEmpty);
       });
     });
   });

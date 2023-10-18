@@ -14,12 +14,12 @@ class StartupViewModel extends BaseViewModel {
   Future runStartupLogic() async {
     // await Future.delayed(const Duration(seconds: 3));
     // await _localDBService.init();
-    final res = await _localDBService.getDescriptions('apple');
+    // final res = await _localDBService.getDescriptions('apple');
 
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
 
     _navigationService.replaceWithHomeView();
-    dev.log('$res', name: 'Startup View Model');
+    // dev.log('$res', name: 'Startup View Model');
   }
 }

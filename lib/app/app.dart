@@ -17,7 +17,8 @@ import 'package:usda_search/services/local_db_service.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    InitializableSingleton(classType: LocalDbService),
+    LazySingleton(classType: LocalDbService),
+
 // @stacked-service
   ],
   bottomsheets: [
