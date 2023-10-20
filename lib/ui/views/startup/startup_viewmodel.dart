@@ -2,13 +2,13 @@ import 'package:stacked/stacked.dart';
 import 'package:usda_search/app/app.locator.dart';
 import 'package:usda_search/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:usda_search/services/local_db_service.dart';
+// import 'package:usda_search/services/local_db_service.dart';
 
-import 'dart:developer' as dev;
+// import 'dart:developer' as dev;
 
 class StartupViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
-  final _localDBService = locator<LocalDbService>();
+  // final _localDBService = locator<LocalDbService>();
 
   // Place anything here that needs to happen before we get into the application
   Future runStartupLogic() async {
