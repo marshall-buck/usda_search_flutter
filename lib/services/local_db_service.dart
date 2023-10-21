@@ -16,14 +16,16 @@ class LocalDbService implements InitializableDependency {
     }
   }
 
+  /// Nulls out DB data structures.
   void dispose() => _db.dispose();
 
-  /// Use to return a list of food descriptions from search term.
-  ///
-  ///Returns (description, length, id).
+  /// Use to return a list of sorted by length food descriptions from search term.
   Future<List<(String, num, String)?>> getAutoCompleteDescriptionRecords(
           String term) async =>
       await _db.getDescriptions(term);
+
+  /// Get a FoodModel Item by Index
+  FoodModel? getFood(String index) => _db.getFood(index);
 
   @override
   String toString() {
