@@ -5,6 +5,7 @@ import 'package:usda_search/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:usda_search/services/local_db_service.dart';
+import 'package:usda_search/services/autocomplete_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -19,6 +20,7 @@ import 'package:usda_search/services/local_db_service.dart';
     LazySingleton(classType: NavigationService),
     InitializableSingleton(classType: LocalDbService),
 
+    LazySingleton(classType: AutocompleteService),
 // @stacked-service
   ],
   bottomsheets: [

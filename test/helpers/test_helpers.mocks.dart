@@ -9,6 +9,8 @@ import 'dart:ui' as _i5;
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i2;
+import 'package:usda_db_package/usda_db_package.dart' as _i7;
+import 'package:usda_search/services/autocomplete_service.dart' as _i8;
 import 'package:usda_search/services/local_db_service.dart' as _i6;
 
 // ignore_for_file: type=lint
@@ -690,4 +692,19 @@ class MockLocalDbService extends _i1.Mock implements _i6.LocalDbService {
             _i4.Future<List<(String, num, String)?>>.value(
                 <(String, num, String)?>[]),
       ) as _i4.Future<List<(String, num, String)?>>);
+
+  @override
+  _i7.FoodModel? getFood(String? index) => (super.noSuchMethod(
+        Invocation.method(
+          #getFood,
+          [index],
+        ),
+        returnValueForMissingStub: null,
+      ) as _i7.FoodModel?);
 }
+
+/// A class which mocks [AutocompleteService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAutocompleteService extends _i1.Mock
+    implements _i8.AutocompleteService {}

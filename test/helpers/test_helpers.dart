@@ -4,6 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:usda_search/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:usda_search/services/local_db_service.dart';
+import 'package:usda_search/services/autocomplete_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -13,6 +14,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<LocalDbService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<AutocompleteService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -21,6 +23,7 @@ void registerServices() {
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
   getAndRegisterLocalDbService();
+  getAndRegisterAutocompleteService();
 // @stacked-mock-register
 }
 
@@ -83,6 +86,13 @@ MockLocalDbService getAndRegisterLocalDbService() {
 
   locator.registerSingleton<LocalDbService>(service);
 
+  return service;
+}
+
+MockAutocompleteService getAndRegisterAutocompleteService() {
+  _removeRegistrationIfExists<AutocompleteService>();
+  final service = MockAutocompleteService();
+  locator.registerSingleton<AutocompleteService>(service);
   return service;
 }
 // @stacked-mock-create
